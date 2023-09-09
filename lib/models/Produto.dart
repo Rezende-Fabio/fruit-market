@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Produtos {
+class Produto {
   final int id;
   final String titulo;
   final Image imagem;
   final Color cor;
 
-  Produtos({
+  Produto({
     required this.id,
     required this.titulo,
     required this.imagem,

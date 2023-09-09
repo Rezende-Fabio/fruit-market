@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_market/pages/explore.dart';
 import '../components/bottom_navigator.dart';
+import '../pages/favorite.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -31,9 +32,7 @@ class _HomeState extends State<Home> {
           Container(
             child: Text("dsjhfjhds"),
           ),
-          Container(
-            child: Text("dsjhfjhds"),
-          ),
+          Favorite(),
           Container(
             child: Text("dsjhfjhds"),
           )

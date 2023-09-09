@@ -18,12 +18,8 @@ class _ExploreState extends State<Explore> {
       child: SizedBox(
         child: Column(
           children: [
-            FindProducts(),
-            Container(
-              height: 600,
-              width: 365,
-              child: ProductsList(),
-            ),
+            const FindProducts(),
+            ProductsList(),
           ],
         ),
       ),

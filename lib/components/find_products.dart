@@ -14,7 +14,7 @@ class FindProducts extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
+              const Text(
                 "Encontrar Produtos",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -29,10 +29,10 @@ class FindProducts extends StatelessWidget {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: Color.fromARGB(255, 213, 213, 213)),
+                          const BorderSide(color: Color.fromARGB(255, 213, 213, 213)),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    fillColor: Color.fromARGB(255, 213, 213, 213),
+                    fillColor: const Color.fromARGB(255, 213, 213, 213),
                     filled: true,
                     hintText: 'Pesquisa',
                     prefixIcon: Icon(Icons.search)),
