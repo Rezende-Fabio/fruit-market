@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class BottomNavgator extends StatelessWidget {
-  const BottomNavgator({super.key});
+  final PageController pageController;
+
+  BottomNavgator(this.pageController);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: 75,
       child: ClipRRect(
         borderRadius: const BorderRadius.vertical(top: Radius.circular(20.0)),
         child: BottomNavigationBar(
@@ -37,6 +39,10 @@ class BottomNavgator extends StatelessWidget {
               label: 'Conta',
             ),
           ],
+          currentIndex: pageController?.page?.round() ?? 1,
+          onTap: (index) {
+            pageController.jumpToPage(index);
+          },
         ),
       ),
     );

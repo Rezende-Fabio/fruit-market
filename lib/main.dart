@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './pages/login.dart';
-import './pages/explore.dart';
+import './pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
       initialRoute: "/",
       routes: {
         "/":(context) => Login(),
-        "/explore":(context) => Explore(),
+        "/explore":(context) => Home(),
       },
     );
   }
