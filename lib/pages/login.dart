@@ -61,11 +61,14 @@ class _LoginState extends State<Login> {
               child: Column(
                 children: [
                   Container(
-                    padding: const EdgeInsets.only(left: 35, right: 35, bottom: 10),
+                    padding:
+                        const EdgeInsets.only(left: 35, right: 35, bottom: 10),
                     width: double.infinity,
                     height: 70,
                     child: ElevatedButton(
-                      onPressed: () => {},
+                      onPressed: () =>{
+                        Navigator.of(context).pushNamed("/explore")
+                      },
                       child: const Text(
                         "Login",
                         style: TextStyle(fontSize: 17),
