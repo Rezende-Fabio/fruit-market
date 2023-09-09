@@ -37,7 +37,7 @@ class FavoriteList extends StatelessWidget {
         imagem: Image.asset("assets/suco_uva.png"),
         preco: 20.50,
         litragem: "1 L",
-    )
+    ),
   ];
 
   @override

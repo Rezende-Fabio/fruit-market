@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
       initialRoute: "/",
       routes: {
         "/":(context) => Login(),
-        "/explore":(context) => Home(),
+        "/home":(context) => Home(),
       },
     );
   }

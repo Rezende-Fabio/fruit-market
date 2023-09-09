@@ -67,7 +67,7 @@ class _LoginState extends State<Login> {
                     height: 70,
                     child: ElevatedButton(
                       onPressed: () =>{
-                        Navigator.of(context).pushNamed("/explore")
+                        Navigator.of(context).pushNamed("/home")
                       },
                       child: const Text(
                         "Login",

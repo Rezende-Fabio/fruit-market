@@ -39,7 +39,7 @@ class BottomNavgator extends StatelessWidget {
               label: 'Conta',
             ),
           ],
-          currentIndex: pageController?.page?.round() ?? 1,
+          currentIndex: pageController.page?.round() ?? 1,
           onTap: (index) {
             pageController.jumpToPage(index);
           },
