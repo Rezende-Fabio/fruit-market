@@ -43,7 +43,7 @@ class FavoriteList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 700,
+      height: 625,
       width: 365,
       child: ListView.builder(
         itemCount: _favoritos.length,

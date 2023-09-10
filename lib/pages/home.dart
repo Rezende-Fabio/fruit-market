@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_market/pages/explore.dart';
 import '../components/bottom_navigator.dart';
 import '../pages/favorite.dart';
+import '../pages/desenvolvimento.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -25,17 +26,11 @@ class _HomeState extends State<Home> {
       body: PageView(
         controller: pageController,
         children: [
-          Container(
-            child: Text("dsjhfjhds"),
-          ),
+          Desenvolvimento(),
           Explore(),
-          Container(
-            child: Text("dsjhfjhds"),
-          ),
+          Desenvolvimento(),
           Favorite(),
-          Container(
-            child: Text("dsjhfjhds"),
-          )
+          Desenvolvimento()
         ],
       ),
       bottomNavigationBar: AnimatedBuilder(
