@@ -10,7 +10,7 @@ class BottomNavgator extends StatelessWidget {
     return ClipRRect(
       borderRadius: const BorderRadius.vertical(top: Radius.circular(20.0)),
       child: BottomNavigationBar(
-        elevation: 30,
+        elevation: 15 ,
         fixedColor: Color.fromARGB(255, 34, 192, 2),
         unselectedItemColor: Colors.black,
         unselectedLabelStyle: const TextStyle(color: Colors.black),
@@ -37,7 +37,7 @@ class BottomNavgator extends StatelessWidget {
             label: 'Conta',
           ),
         ],
-        currentIndex: pageController.page?.round() ?? 1,
+        currentIndex: pageController?.page?.round() ?? 1,
         onTap: (index) {
           pageController.jumpToPage(index);
         },

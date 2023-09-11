@@ -16,44 +16,42 @@ class _FormLoginState extends State<FormLogin> {
       padding: const EdgeInsets.only(left: 20, right: 20),
       width: double.infinity,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              const TextField(
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  labelText: "E-mail",
-                ),
+          Container(
+            margin: EdgeInsets.only(bottom: 25),
+            child: const TextField(
+              textInputAction: TextInputAction.next,
+              decoration: InputDecoration(
+                labelText: "E-mail",
               ),
-              TextField(
-                obscureText: _verSenha,
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  labelText: "Senha",
-                  suffixIcon: IconButton(
-                    icon: _verSenha
-                        ? const Icon(Icons.visibility)
-                        : const Icon(Icons.visibility_off),
-                    onPressed: () => {
-                      setState(() {
-                        _verSenha = !_verSenha;
-                      })
-                    },
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 12, right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text("Esqueceu a senha?")
-                  ],
-                ),
-              )
-            ],
+            ),
           ),
+          TextField(
+            obscureText: _verSenha,
+            textInputAction: TextInputAction.next,
+            decoration: InputDecoration(
+              labelText: "Senha",
+              suffixIcon: IconButton(
+                icon: _verSenha
+                    ? const Icon(Icons.visibility)
+                    : const Icon(Icons.visibility_off),
+                onPressed: () => {
+                  setState(() {
+                    _verSenha = !_verSenha;
+                  })
+                },
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 12, right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text("Esqueceu a senha?")
+              ],
+            ),
+          )
         ],
       ),
     );

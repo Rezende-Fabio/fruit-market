@@ -8,7 +8,7 @@ class FindProducts extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
+        SizedBox(
           width: 350,
           height: 150,
           child: Column(

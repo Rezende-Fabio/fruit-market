@@ -71,59 +71,62 @@ class ProductsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 600,
-      width: 365,
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Número de colunas
-        ),
-        itemCount: _prdutos.length,
-        itemBuilder: (ctx, index) {
-          final pr = _prdutos[index];
-          return Padding(
-            padding: const EdgeInsets.all(5),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (BuildContext context) {
-                    return Information(pr);
-                  }),
-                );
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: pr.cor.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(20.0),
-                  border: Border.all(
-                    color: pr.cor,
-                    width: 2.0,
-                  ),
-                ),
-                padding: const EdgeInsets.all(15),
-                child: Center(
-                    child: Column(
-                  children: [
-                    Container(
-                      width: 95,
-                      child: pr.imagem,
+    return Padding(
+      padding: const EdgeInsets.only(left: 12.5, right: 12.5),
+      child: SizedBox(
+        height: 600,
+        width: double.infinity,
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, // Número de colunas
+          ),
+          itemCount: _prdutos.length,
+          itemBuilder: (ctx, index) {
+            final pr = _prdutos[index];
+            return Padding(
+              padding: const EdgeInsets.all(5),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (BuildContext context) {
+                      return Information(pr);
+                    }),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: pr.cor.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(20.0),
+                    border: Border.all(
+                      color: pr.cor,
+                      width: 2.0,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 25),
-                      child: Text(
-                        pr.titulo,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                  ),
+                  padding: const EdgeInsets.all(15),
+                  child: Center(
+                      child: Column(
+                    children: [
+                      Container(
+                        width: 95,
+                        child: pr.imagem,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25),
+                        child: Text(
+                          pr.titulo,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                )),
+                    ],
+                  )),
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
