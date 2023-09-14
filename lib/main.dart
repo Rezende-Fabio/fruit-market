@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_market/models/Favorito.dart';
 import './pages/login.dart';
 import './pages/home.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(Provider(
+    create: (_) => Favorito(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -36,8 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       initialRoute: "/",
       routes: {
-        "/":(context) => Login(),
-        "/home":(context) => Home(),
+        "/": (context) => Login(),
+        "/home": (context) => Home(),
       },
     );
   }

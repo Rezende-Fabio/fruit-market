@@ -1,47 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/Favorito.dart';
 
 class FavoriteList extends StatelessWidget {
-  final _favoritos = [
-    Favorito(
-      id: 1,
-      titulo: "Coca-Cola",
-      imagem: Image.asset("assets/coca_cola.png"),
-      preco: 15.99,
-      litragem: "350 ML",
-    ),
-    Favorito(
-        id: 2,
-        titulo: "Pepsi Black",
-        imagem: Image.asset("assets/pepsi_black.png"),
-        preco: 13.99,
-        litragem: "350 ML",
-    ),
-    Favorito(
-        id: 3,
-        titulo: "Fanta Laranja",
-        imagem: Image.asset("assets/fanta_laranja.png"),
-        preco: 18.50,
-        litragem: "650 ML",
-    ),
-    Favorito(
-        id: 4,
-        titulo: "Suco Laranja",
-        imagem: Image.asset("assets/suco_laranja.png"),
-        preco: 5.85,
-        litragem: "180 ML",
-    ),
-    Favorito(
-        id: 5,
-        titulo: "Suco Natural Uva",
-        imagem: Image.asset("assets/suco_uva.png"),
-        preco: 20.50,
-        litragem: "1 L",
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List _favoritos = (context).select((Favorito f) => f.favoritos);
     return Padding(
       padding: const EdgeInsets.only(left: 12, right: 12),
       child: SizedBox(
@@ -82,7 +46,7 @@ class FavoriteList extends StatelessWidget {
                                     fontWeight: FontWeight.bold, fontSize: 18),
                               ),
                               Text(
-                                "${fv.litragem}, Preço",
+                                "${fv.tipo}, Preço",
                                 style: const TextStyle(color: Color.fromARGB(255, 146, 146, 146)),
                               ),
                             ],

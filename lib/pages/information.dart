@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../models/Favorito.dart';
 import '../models/Produto.dart';
+import 'package:provider/provider.dart';
 
 class Information extends StatefulWidget {
   final Produto produto;
@@ -36,6 +38,7 @@ class _InformationState extends State<Information> {
 
   @override
   Widget build(BuildContext context) {
+    Favorito _favorito = (context).select((Favorito f) => f);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -94,15 +97,26 @@ class _InformationState extends State<Information> {
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 35),
                       ),
-                      const Text("1KG, Preço",
-                          style: TextStyle(
+                      Text("${widget.produto.tipo}, Preço",
+                          style: const TextStyle(
                               color: Color.fromARGB(255, 146, 146, 146)))
                     ],
                   ),
-                  IconButton(
-                    onPressed: () => {},
-                    icon: const Icon(Icons.favorite_border),
-                  )
+                  _favorito.pesquisaProduto(widget.produto.id)
+                      ? IconButton(
+                          onPressed: () =>
+                              {_favorito.removeFavorito(widget.produto),  setState(() {})},
+                          icon: const Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                            size: 30,
+                          ))
+                      : IconButton(
+                          onPressed: () =>
+                              {_favorito.adicionaFavorito(widget.produto), setState(() {})},
+                          icon: const Icon(
+                            Icons.favorite_border,
+                          ))
                 ],
               ),
             ),
@@ -115,12 +129,11 @@ class _InformationState extends State<Information> {
                     children: [
                       IconButton(
                         onPressed: () => {
-                          if (_qtde > 1)
-                            {
-                              setState(() {
-                                _qtde -= 1;
-                              })
-                            }
+                          _qtde > 1
+                              ? setState(() {
+                                  _qtde -= 1;
+                                })
+                              : false
                         },
                         icon: const Icon(Icons.minimize_rounded),
                       ),
@@ -181,7 +194,9 @@ class _InformationState extends State<Information> {
             height: 3,
             margin: const EdgeInsets.only(right: 5),
             decoration: BoxDecoration(
-                color: _paginaAtual == i["id"] ? Color.fromARGB(255, 33, 225, 3) : Colors.grey,
+                color: _paginaAtual == i["id"]
+                    ? Color.fromARGB(255, 33, 225, 3)
+                    : Colors.grey,
                 borderRadius: BorderRadius.all(Radius.circular(35.0))),
           );
         }).toList(),
