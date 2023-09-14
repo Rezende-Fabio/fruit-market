@@ -11,7 +11,28 @@ class Information extends StatefulWidget {
 }
 
 class _InformationState extends State<Information> {
+  final PageController _pageController = PageController();
+
   int _qtde = 1;
+  int _paginaAtual = 0;
+  var _listaImagens = [
+    {"id": 0, "imagem": ""},
+    {"id": 1, "imagem": ""},
+    {"id": 2, "imagem": ""},
+  ];
+
+  @override
+  void initState() {
+    _pageController.addListener(() {
+      int prox = _pageController.page!.round();
+      if (_paginaAtual != prox) {
+        setState(() {
+          _paginaAtual = prox;
+        });
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,45 +65,19 @@ class _InformationState extends State<Information> {
                       ],
                     ),
                   ),
-                  Container(
-                    width: 200,
-                    child: widget.produto.imagem,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 55, left: 10, right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 15,
-                          height: 3,
-                          margin: const EdgeInsets.only(right: 5),
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 33, 225, 3),
-                            borderRadius: BorderRadius.all(Radius.circular(35.0))
-                          ),
-                        ),
-                        Container(
-                          width: 5,
-                          height: 3,
-                          margin: const EdgeInsets.only(right: 5),
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 189, 189, 189),
-                            borderRadius: BorderRadius.all(Radius.circular(35.0))
-                          ),
-                        ),
-                        Container(
-                          width: 5,
-                          height: 3,
-                          margin: const EdgeInsets.only(right: 5),
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 189, 189, 189),
-                            borderRadius: BorderRadius.all(Radius.circular(35.0))
-                          ),
-                        ),
-                      ],
+                  Expanded(
+                    child: PageView.builder(
+                      controller: _pageController,
+                      itemCount: _listaImagens.length,
+                      itemBuilder: (_, index) {
+                        return Container(
+                          width: 200,
+                          child: widget.produto.imagem,
+                        );
+                      },
                     ),
                   ),
+                  _buildPontos(),
                 ],
               ),
             ),
@@ -132,7 +127,8 @@ class _InformationState extends State<Information> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10.0)),
                           border: Border.all(
                             color: const Color.fromARGB(
                                 255, 149, 149, 149), // Cor da borda
@@ -153,7 +149,8 @@ class _InformationState extends State<Information> {
                   ),
                   Text(
                     "R\$ ${_qtde * widget.produto.preco}",
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
                   )
                 ],
               ),
@@ -167,6 +164,27 @@ class _InformationState extends State<Information> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildPontos() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30, left: 10, right: 10, bottom: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: _listaImagens.map((i) {
+          return AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            width: _paginaAtual == i["id"] ? 15 : 5,
+            height: 3,
+            margin: const EdgeInsets.only(right: 5),
+            decoration: BoxDecoration(
+                color: _paginaAtual == i["id"] ? Color.fromARGB(255, 33, 225, 3) : Colors.grey,
+                borderRadius: BorderRadius.all(Radius.circular(35.0))),
+          );
+        }).toList(),
       ),
     );
   }
