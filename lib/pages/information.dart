@@ -166,7 +166,7 @@ class _InformationState extends State<Information> {
                     ],
                   ),
                   Text(
-                    "R\$ ${_qtde * widget.produto.preco}",
+                    "R\$ ${(_qtde * widget.produto.preco).toStringAsFixed(2)}",
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold),
                   )

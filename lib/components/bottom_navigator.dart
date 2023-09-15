@@ -25,8 +25,8 @@ class BottomNavgator extends StatelessWidget {
             label: 'Explorar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Carrinho',
+            icon: Icon(Icons.no_drinks),
+            label: 'Bebidas',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),

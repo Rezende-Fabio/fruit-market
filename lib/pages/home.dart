@@ -3,6 +3,7 @@ import 'package:fruit_market/pages/explore.dart';
 import '../components/bottom_navigator.dart';
 import '../pages/favorite.dart';
 import '../pages/desenvolvimento.dart';
+import '../pages/beverages.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -29,7 +30,7 @@ class _HomeState extends State<Home> {
         children: [
           Desenvolvimento(),
           Explore(),
-          Desenvolvimento(),
+          Beverages(),
           Favorite(),
           Desenvolvimento()
         ],

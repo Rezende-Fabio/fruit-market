@@ -44,7 +44,7 @@ class _FavoriteListState extends State<FavoriteList> {
                   _favoritos.removeFavorito(fv);
                 });
               },
-              key: ValueKey(index),
+              key: UniqueKey(),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
                 child: Container(
