@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final pageController = PageController();
+  final pageController = PageController(initialPage: 1);
 
   @override
   void dispose() {
@@ -25,6 +25,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: PageView(
         controller: pageController,
+        physics: NeverScrollableScrollPhysics(),
         children: [
           Desenvolvimento(),
           Explore(),

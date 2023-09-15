@@ -104,19 +104,24 @@ class _InformationState extends State<Information> {
                   ),
                   _favorito.pesquisaProduto(widget.produto.id)
                       ? IconButton(
-                          onPressed: () =>
-                              {_favorito.removeFavorito(widget.produto),  setState(() {})},
+                          onPressed: () => {
+                                _favorito.removeFavorito(widget.produto),
+                                setState(() {})
+                              },
                           icon: const Icon(
                             Icons.favorite,
                             color: Colors.red,
                             size: 30,
                           ))
                       : IconButton(
-                          onPressed: () =>
-                              {_favorito.adicionaFavorito(widget.produto), setState(() {})},
+                          onPressed: () => {
+                            _favorito.adicionaFavorito(widget.produto),
+                            setState(() {})
+                          },
                           icon: const Icon(
                             Icons.favorite_border,
-                          ))
+                          ),
+                        )
                 ],
               ),
             ),

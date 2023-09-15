@@ -6,9 +6,9 @@ class ProductsList extends StatelessWidget {
   final _prdutos = [
     Produto(
       id: 6,
-      titulo: "Maçâ",
+      titulo: "Maçã",
       imagem: Image.asset("assets/maca.png"),
-      cor: Color.fromARGB(255, 197, 16, 16),
+      cor: const Color.fromARGB(255, 197, 16, 16),
       tipo: "1 Kg",
       preco: 10.50,
     ),
