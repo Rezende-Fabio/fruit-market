@@ -18,7 +18,7 @@ class _FormLoginState extends State<FormLogin> {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(bottom: 25),
+            margin: const EdgeInsets.only(bottom: 25),
             child: const TextField(
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(

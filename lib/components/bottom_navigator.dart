@@ -11,7 +11,7 @@ class BottomNavgator extends StatelessWidget {
       borderRadius: const BorderRadius.vertical(top: Radius.circular(20.0)),
       child: BottomNavigationBar(
         elevation: 15 ,
-        fixedColor: Color.fromARGB(255, 34, 192, 2),
+        fixedColor: const Color.fromARGB(255, 34, 192, 2),
         unselectedItemColor: Colors.black,
         unselectedLabelStyle: const TextStyle(color: Colors.black),
         items: const <BottomNavigationBarItem>[

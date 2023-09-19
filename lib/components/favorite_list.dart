@@ -28,11 +28,11 @@ class _FavoriteListState extends State<FavoriteList> {
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.delete,
                       size: 25,
                     ),
-                    const Icon(
+                    Icon(
                       Icons.delete,
                       size: 25,
                     ),
@@ -59,7 +59,7 @@ class _FavoriteListState extends State<FavoriteList> {
                       Padding(
                         padding: const EdgeInsets.only(
                             left: 2, bottom: 15, right: 5),
-                        child: Container(
+                        child: SizedBox(
                           width: 55,
                           child: fv.imagem,
                         ),

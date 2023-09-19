@@ -26,8 +26,8 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: PageView(
         controller: pageController,
-        physics: NeverScrollableScrollPhysics(),
-        children: [
+        physics: const NeverScrollableScrollPhysics(),
+        children: const [
           Desenvolvimento(),
           Explore(),
           Beverages(),

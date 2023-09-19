@@ -6,7 +6,7 @@ class Desenvolvimento extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: SizedBox(
         width: 350,
         child: Image.asset("assets/desenvolvimento.png"),
       ),

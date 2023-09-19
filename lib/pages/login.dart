@@ -19,7 +19,7 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Center(
-                child: Container(
+                child: SizedBox(
                   width: 55,
                   child: Image.asset("assets/cenoura.png"),
                 ),
@@ -65,15 +65,15 @@ class _LoginState extends State<Login> {
                       child: ElevatedButton(
                         onPressed: () =>
                             {Navigator.of(context).pushNamed("/home")},
-                        child: const Text(
-                          "Login",
-                          style: TextStyle(fontSize: 17),
-                        ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
+                        ),
+                        child: const Text(
+                          "Login",
+                          style: TextStyle(fontSize: 17),
                         ),
                       ),
                     ),

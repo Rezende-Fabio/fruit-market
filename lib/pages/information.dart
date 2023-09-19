@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/button_footer.dart';
 import '../models/Favorito.dart';
 import '../models/Produto.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +18,7 @@ class _InformationState extends State<Information> {
 
   int _qtde = 1;
   int _paginaAtual = 0;
+  bool isExpanded = false;
   var _listaImagens = [
     {"id": 0, "imagem": ""},
     {"id": 1, "imagem": ""},
@@ -34,6 +36,12 @@ class _InformationState extends State<Information> {
       }
     });
     super.initState();
+  }
+
+  void toggleContainer() {
+    setState(() {
+      isExpanded = !isExpanded;
+    });
   }
 
   @override
@@ -73,7 +81,7 @@ class _InformationState extends State<Information> {
                       controller: _pageController,
                       itemCount: _listaImagens.length,
                       itemBuilder: (_, index) {
-                        return Container(
+                        return SizedBox(
                           width: 200,
                           child: widget.produto.imagem,
                         );
@@ -121,7 +129,7 @@ class _InformationState extends State<Information> {
                           icon: const Icon(
                             Icons.favorite_border,
                           ),
-                        )
+                        ),
                 ],
               ),
             ),
@@ -180,6 +188,60 @@ class _InformationState extends State<Information> {
                 color: Colors.black,
               ),
             ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 5),
+                  child: AnimatedContainer(
+                    duration: Duration(seconds: 1),
+                    height: isExpanded ? 120 : 40,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Detalhes do produto"),
+                              IconButton(
+                                onPressed: toggleContainer,
+                                icon: isExpanded ? Icon(Icons.keyboard_arrow_down_sharp, size: 28) : Icon(Icons.keyboard_arrow_right_sharp, size: 28),
+                              )
+                            ],
+                          ),
+                          Opacity(
+                            opacity: isExpanded ? 1 : 0,
+                            child: const Text(
+                              "Lorem ipsum dolor sit amet. Ut cumque dolore 33 omnis exercitationem ut sint ipsum vel optio magnam et natus expedita qui debitis delectus eum tempore voluptas. Qui voluptatem temporibus in odit dolores ut temporibus alias a enim vitae qui consequatur laborum!",
+                              softWrap: true,
+                              style: TextStyle(
+                                height: 1.5,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 10, left: 10, right: 10),
+                  child: Container(
+                    height: 1,
+                    color: Colors.black,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 20, left: 10, right: 10),
+                  child: Container(
+                    height: 1,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+            ButtonFooter("")
           ],
         ),
       ),
@@ -200,9 +262,9 @@ class _InformationState extends State<Information> {
             margin: const EdgeInsets.only(right: 5),
             decoration: BoxDecoration(
                 color: _paginaAtual == i["id"]
-                    ? Color.fromARGB(255, 33, 225, 3)
+                    ? const Color.fromARGB(255, 33, 225, 3)
                     : Colors.grey,
-                borderRadius: BorderRadius.all(Radius.circular(35.0))),
+                borderRadius: const BorderRadius.all(Radius.circular(35.0))),
           );
         }).toList(),
       ),

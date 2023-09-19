@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/button_footer.dart';
 import '../components/favorite_list.dart';
 
 class Favorite extends StatefulWidget {
@@ -35,24 +36,7 @@ class _FavoriteState extends State<Favorite> {
               margin: const EdgeInsets.only(top: 15, bottom: 15), // Cor da linha
             ),
             FavoriteList(),
-            Container(
-              padding: const EdgeInsets.only(left: 35, right: 35, top: 8),
-              width: double.infinity,
-              height: 70,
-              child: ElevatedButton(
-                onPressed: () => {},
-                child: Text(
-                  "Adcionar todos ao Corrinho",
-                  style: TextStyle(fontSize: 17),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-              ),
-            ),
+            const ButtonFooter("Adcionar todos ao Corrinho")
           ],
         ),
       ),

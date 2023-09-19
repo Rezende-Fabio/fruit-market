@@ -35,7 +35,7 @@ class FindProducts extends StatelessWidget {
                     fillColor: const Color.fromARGB(255, 213, 213, 213),
                     filled: true,
                     hintText: 'Pesquisa',
-                    prefixIcon: Icon(Icons.search)),
+                    prefixIcon: const Icon(Icons.search)),
               ),
             ],
           ),
