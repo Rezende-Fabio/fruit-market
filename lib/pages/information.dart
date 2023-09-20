@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/button_footer.dart';
+import '../components/line.dart';
 import '../models/Favorito.dart';
 import '../models/Produto.dart';
 import 'package:provider/provider.dart';
@@ -38,7 +39,7 @@ class _InformationState extends State<Information> {
     super.initState();
   }
 
-  void toggleContainer() {
+  void expandirContainer() {
     setState(() {
       isExpanded = !isExpanded;
     });
@@ -119,7 +120,7 @@ class _InformationState extends State<Information> {
                           icon: const Icon(
                             Icons.favorite,
                             color: Colors.red,
-                            size: 30,
+                            size: 33,
                           ))
                       : IconButton(
                           onPressed: () => {
@@ -128,6 +129,7 @@ class _InformationState extends State<Information> {
                           },
                           icon: const Icon(
                             Icons.favorite_border,
+                            size: 30,
                           ),
                         ),
                 ],
@@ -140,15 +142,21 @@ class _InformationState extends State<Information> {
                 children: [
                   Row(
                     children: [
-                      IconButton(
-                        onPressed: () => {
-                          _qtde > 1
-                              ? setState(() {
-                                  _qtde -= 1;
-                                })
-                              : false
-                        },
-                        icon: const Icon(Icons.minimize_rounded),
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child: IconButton(
+                          onPressed: () => {
+                            _qtde > 1
+                                ? setState(() {
+                                    _qtde -= 1;
+                                  })
+                                : false
+                          },
+                          icon: const Icon(
+                            Icons.minimize_rounded,
+                            color: Colors.grey,
+                          ),
+                        ),
                       ),
                       Container(
                         padding: const EdgeInsets.all(12),
@@ -169,7 +177,10 @@ class _InformationState extends State<Information> {
                             _qtde += 1;
                           })
                         },
-                        icon: const Icon(Icons.add_rounded),
+                        icon: const Icon(
+                          Icons.add_rounded,
+                          color: Colors.green,
+                        ),
                       )
                     ],
                   ),
@@ -181,67 +192,163 @@ class _InformationState extends State<Information> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
-              child: Container(
-                height: 1,
-                color: Colors.black,
-              ),
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 5),
-                  child: AnimatedContainer(
-                    duration: Duration(seconds: 1),
-                    height: isExpanded ? 120 : 40,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Detalhes do produto"),
-                              IconButton(
-                                onPressed: toggleContainer,
-                                icon: isExpanded ? Icon(Icons.keyboard_arrow_down_sharp, size: 28) : Icon(Icons.keyboard_arrow_right_sharp, size: 28),
-                              )
-                            ],
+            const Line(),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 5),
+                        child: AnimatedContainer(
+                          duration: const Duration(seconds: 1),
+                          height: isExpanded ? 130 : 40,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text(
+                                      "Detalhes do produto",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold, fontSize: 15),
+                                    ),
+                                    IconButton(
+                                      onPressed: expandirContainer,
+                                      icon: isExpanded
+                                          ? const Icon(Icons.keyboard_arrow_down_sharp,
+                                              size: 28)
+                                          : const Icon(Icons.keyboard_arrow_right_sharp,
+                                              size: 28),
+                                    )
+                                  ],
+                                ),
+                                Opacity(
+                                  opacity: isExpanded ? 1 : 0,
+                                  child: const Text(
+                                    "Lorem ipsum dolor sit amet. Ut cumque dolore 33 omnis exercitationem ut sint ipsum vel optio magnam et natus expedita qui debitis delectus eum tempore voluptas. Qui voluptatem temporibus in odit dolores ut temporibus alias a enim vitae qui consequatur laborum!",
+                                    softWrap: true,
+                                    style: TextStyle(
+                                      height: 1.5,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                          Opacity(
-                            opacity: isExpanded ? 1 : 0,
-                            child: const Text(
-                              "Lorem ipsum dolor sit amet. Ut cumque dolore 33 omnis exercitationem ut sint ipsum vel optio magnam et natus expedita qui debitis delectus eum tempore voluptas. Qui voluptatem temporibus in odit dolores ut temporibus alias a enim vitae qui consequatur laborum!",
-                              softWrap: true,
-                              style: TextStyle(
-                                height: 1.5,
+                        ),
+                      ),
+                      const Line(),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 5),
+                            child: AnimatedContainer(
+                              duration: const Duration(seconds: 1),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text("Nutrições", style: TextStyle(
+                                          fontWeight: FontWeight.bold, fontSize: 15),),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              padding: EdgeInsets.all(5),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.grey,
+                                                  borderRadius:
+                                                      BorderRadius.circular(20)),
+                                              child: Text("100gr"),
+                                            ),
+                                            IconButton(
+                                              onPressed: () => {},
+                                              icon: isExpanded
+                                                  ? const Icon(
+                                                      Icons.keyboard_arrow_down_sharp,
+                                                      size: 28)
+                                                  : const Icon(
+                                                      Icons
+                                                          .keyboard_arrow_right_sharp,
+                                                      size: 28),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           )
                         ],
                       ),
-                    ),
+                      const Line(),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 5),
+                            child: AnimatedContainer(
+                              duration: const Duration(seconds: 1),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text("Avaliações", style: TextStyle(
+                                          fontWeight: FontWeight.bold, fontSize: 15),),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              padding: const EdgeInsets.all(5),
+                                              child: const Row(
+                                                children: [
+                                                  Icon(Icons.star, color: Color.fromARGB(255, 217, 158, 30),),
+                                                  Icon(Icons.star, color: Color.fromARGB(255, 217, 158, 30),),
+                                                  Icon(Icons.star, color: Color.fromARGB(255, 217, 158, 30),),
+                                                  Icon(Icons.star, color: Color.fromARGB(255, 217, 158, 30),),
+                                                  Icon(Icons.star, color: Color.fromARGB(255, 217, 158, 30),),
+                                                ],
+                                              ),
+                                            ),
+                                            IconButton(
+                                              onPressed: () => {},
+                                              icon: isExpanded
+                                                  ? const Icon(
+                                                      Icons.keyboard_arrow_down_sharp,
+                                                      size: 28)
+                                                  : const Icon(
+                                                      Icons
+                                                          .keyboard_arrow_right_sharp,
+                                                      size: 28),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(top: 10, left: 10, right: 10),
-                  child: Container(
-                    height: 1,
-                    color: Colors.black,
-                  ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(top: 20, left: 10, right: 10),
-                  child: Container(
-                    height: 1,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-            ButtonFooter("")
+            const Padding(
+              padding: EdgeInsets.only(bottom: 15),
+              child: ButtonFooter("Adcionar no Carrinho"),
+            ),
           ],
         ),
       ),

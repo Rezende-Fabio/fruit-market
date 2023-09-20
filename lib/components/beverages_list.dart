@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../models/Produto.dart';
-import '../pages/information.dart';
 
 class BeverageList extends StatelessWidget {
   final _prdutos = [
