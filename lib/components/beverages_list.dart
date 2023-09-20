@@ -4,7 +4,7 @@ import '../models/Produto.dart';
 class BeverageList extends StatelessWidget {
   final _prdutos = [
     Produto(
-      id: 6,
+      id: 15,
       titulo: "Coca-Cola",
       imagem: Image.asset("assets/coca_cola.png"),
       cor: const Color.fromARGB(255, 197, 16, 16),
@@ -12,7 +12,7 @@ class BeverageList extends StatelessWidget {
       preco: 10.50,
     ),
     Produto(
-      id: 7,
+      id: 16,
       titulo: "Pepsi Black",
       imagem: Image.asset("assets/pepsi_black.png"),
       cor: const Color.fromARGB(255, 238, 184, 19),
@@ -20,7 +20,7 @@ class BeverageList extends StatelessWidget {
       preco: 8.50,
     ),
     Produto(
-      id: 8,
+      id: 17,
       titulo: "Fanta Uva",
       imagem: Image.asset("assets/fanta_uva.png"),
       cor: const Color.fromARGB(255, 231, 192, 75),
@@ -28,7 +28,7 @@ class BeverageList extends StatelessWidget {
       preco: 5.80,
     ),
     Produto(
-      id: 9,
+      id: 18,
       titulo: "Fanta Laranja",
       imagem: Image.asset("assets/fanta_laranja_lata.png"),
       cor: const Color.fromARGB(255, 145, 121, 49),
@@ -36,7 +36,7 @@ class BeverageList extends StatelessWidget {
       preco: 13.20,
     ),
     Produto(
-      id: 10,
+      id: 19,
       titulo: "Kuat",
       imagem: Image.asset("assets/kuat.png"),
       cor: const Color.fromARGB(255, 90, 71, 14),
@@ -44,7 +44,7 @@ class BeverageList extends StatelessWidget {
       preco: 5.99,
     ),
     Produto(
-      id: 11,
+      id: 20,
       titulo: "Toddynho",
       imagem: Image.asset("assets/toddynho.png"),
       cor: const Color.fromARGB(255, 242, 192, 43),
@@ -52,25 +52,25 @@ class BeverageList extends StatelessWidget {
       preco: 13.50,
     ),
     Produto(
-      id: 12,
-      titulo: "Abacate",
-      imagem: Image.asset("assets/coca_cola.png"),
+      id: 21,
+      titulo: "Sukita Laranja",
+      imagem: Image.asset("assets/sukita_lata_laranja.png"),
       cor: const Color.fromARGB(255, 11, 132, 2),
       tipo: "1 Kg",
       preco: 8.90,
     ),
     Produto(
-      id: 13,
-      titulo: "Uva Roxa",
-      imagem: Image.asset("assets/coca_cola.png"),
+      id: 22,
+      titulo: "Sukita Uva",
+      imagem: Image.asset("assets/sukita_lata_uva.png"),
       cor: const Color.fromARGB(255, 155, 3, 197),
       tipo: "1 Kg",
       preco: 13.25,
     ),
     Produto(
-      id: 14,
-      titulo: "Uva Verde",
-      imagem: Image.asset("assets/coca_cola.png"),
+      id: 23,
+      titulo: "Turbaina",
+      imagem: Image.asset("assets/turbaina_lata.png"),
       cor: const Color.fromARGB(255, 48, 204, 8),
       tipo: "1 Kg",
       preco: 14.50,

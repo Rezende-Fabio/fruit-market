@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_market/models/Produto.dart';
 
-class Favorito {
+class Favorito extends ChangeNotifier {
   List<Produto> favoritos = [];
 
   Favorito() {
@@ -51,10 +51,12 @@ class Favorito {
 
   void adicionaFavorito(Produto produto) {
     favoritos.add(produto);
+    notifyListeners();
   }
 
   void removeFavorito(Produto produtoRemover) {
     favoritos.removeWhere((produto) => produto.id == produtoRemover.id);
+    notifyListeners();
   }
 
   bool pesquisaProduto(int id) {

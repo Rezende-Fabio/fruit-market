@@ -5,10 +5,7 @@ import './pages/home.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(Provider(
-    create: (_) => Favorito(),
-    child: const MyApp(),
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -31,13 +28,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: "/",
-      routes: {
-        "/": (context) => Login(),
-        "/home": (context) => const Home(),
-      },
+    return ChangeNotifierProvider(
+      create: (_) => Favorito(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: "/",
+        routes: {
+          "/": (context) => Login(),
+          "/home": (context) => const Home(),
+        },
+      ),
     );
   }
 }
