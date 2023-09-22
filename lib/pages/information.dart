@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../components/button_footer.dart';
 import '../components/carousel.dart';
 import '../components/line.dart';
@@ -103,20 +104,18 @@ class _InformationState extends State<Information> {
                 children: [
                   Row(
                     children: [
-                      Container(
-                        padding: const EdgeInsets.only(bottom: 15),
-                        child: IconButton(
-                          onPressed: () => {
-                            _qtde > 1
-                                ? setState(() {
-                                    _qtde -= 1;
-                                  })
-                                : false
-                          },
-                          icon: const Icon(
-                            Icons.minimize_rounded,
-                            color: Colors.grey,
-                          ),
+                      IconButton(
+                        onPressed: () => {
+                          _qtde > 1
+                              ? setState(() {
+                                  _qtde -= 1;
+                                })
+                              : false
+                        },
+                        icon: const Icon(
+                          FontAwesomeIcons.minus,
+                          color: Colors.grey,
+                          size: 18,
                         ),
                       ),
                       Container(
@@ -139,8 +138,9 @@ class _InformationState extends State<Information> {
                           })
                         },
                         icon: const Icon(
-                          Icons.add_rounded,
+                          FontAwesomeIcons.plus,
                           color: Colors.green,
+                          size: 18,
                         ),
                       )
                     ],

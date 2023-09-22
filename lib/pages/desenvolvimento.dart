@@ -8,7 +8,7 @@ class Desenvolvimento extends StatelessWidget {
     return Center(
       child: SizedBox(
         width: 350,
-        child: Image.asset("assets/desenvolvimento.png"),
+        child: Image.asset("assets/images/desenvolvimento.png"),
       ),
     );
   }

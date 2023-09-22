@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
               Center(
                 child: SizedBox(
                   width: 55,
-                  child: Image.asset("assets/cenoura.png"),
+                  child: Image.asset("assets/images/cenoura.png"),
                 ),
               ),
               Center(
@@ -58,8 +58,8 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: [
                     Container(
-                      padding:
-                          const EdgeInsets.only(left: 35, right: 35, bottom: 10),
+                      padding: const EdgeInsets.only(
+                          left: 35, right: 35, bottom: 10),
                       width: double.infinity,
                       height: 70,
                       child: ElevatedButton(
