@@ -1,95 +1,22 @@
 import 'package:flutter/material.dart';
-import '../models/Produto.dart';
+import 'package:fruit_market/models/TodoCache.dart';
+import 'package:provider/provider.dart';
 
 class BeverageList extends StatelessWidget {
-  final _prdutos = [
-    Produto(
-      id: 15,
-      titulo: "Coca-Cola",
-      imagem: Image.asset("assets/coca_cola.png"),
-      cor: const Color.fromARGB(255, 197, 16, 16),
-      tipo: "350 ml",
-      preco: 10.50,
-    ),
-    Produto(
-      id: 16,
-      titulo: "Pepsi Black",
-      imagem: Image.asset("assets/pepsi_black.png"),
-      cor: const Color.fromARGB(255, 238, 184, 19),
-      tipo: "350 ml",
-      preco: 8.50,
-    ),
-    Produto(
-      id: 17,
-      titulo: "Fanta Uva",
-      imagem: Image.asset("assets/fanta_uva.png"),
-      cor: const Color.fromARGB(255, 231, 192, 75),
-      tipo: "350 ml",
-      preco: 5.80,
-    ),
-    Produto(
-      id: 18,
-      titulo: "Fanta Laranja",
-      imagem: Image.asset("assets/fanta_laranja_lata.png"),
-      cor: const Color.fromARGB(255, 145, 121, 49),
-      tipo: "450 ml",
-      preco: 13.20,
-    ),
-    Produto(
-      id: 19,
-      titulo: "Kuat",
-      imagem: Image.asset("assets/kuat.png"),
-      cor: const Color.fromARGB(255, 90, 71, 14),
-      tipo: "350 ml",
-      preco: 5.99,
-    ),
-    Produto(
-      id: 20,
-      titulo: "Toddynho",
-      imagem: Image.asset("assets/toddynho.png"),
-      cor: const Color.fromARGB(255, 242, 192, 43),
-      tipo: "200 ml",
-      preco: 13.50,
-    ),
-    Produto(
-      id: 21,
-      titulo: "Sukita Laranja",
-      imagem: Image.asset("assets/sukita_lata_laranja.png"),
-      cor: const Color.fromARGB(255, 11, 132, 2),
-      tipo: "1 Kg",
-      preco: 8.90,
-    ),
-    Produto(
-      id: 22,
-      titulo: "Sukita Uva",
-      imagem: Image.asset("assets/sukita_lata_uva.png"),
-      cor: const Color.fromARGB(255, 155, 3, 197),
-      tipo: "1 Kg",
-      preco: 13.25,
-    ),
-    Produto(
-      id: 23,
-      titulo: "Turbaina",
-      imagem: Image.asset("assets/turbaina_lata.png"),
-      cor: const Color.fromARGB(255, 48, 204, 8),
-      tipo: "1 Kg",
-      preco: 14.50,
-    )
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 25, left: 12.5, right: 12.5),
-      child: SizedBox(
-        height: 700,
+    int _crossAxisCount = (MediaQuery.of(context).size.width / 170).floor();
+    return Consumer<TodoCache>(builder: (context, cache, _) {
+      return Container(
+        padding: const EdgeInsets.only(top: 25, left: 12.5, right: 12.5),
+        height: MediaQuery.of(context).size.height * 0.8,
         width: double.infinity,
         child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 0.70),
-          itemCount: _prdutos.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: _crossAxisCount, childAspectRatio: 0.70),
+          itemCount: cache.bebidas.length,
           itemBuilder: (ctx, index) {
-            final pr = _prdutos[index];
+            final pr = cache.bebidas[index];
             return Padding(
               padding: const EdgeInsets.all(5),
               child: Container(
@@ -167,7 +94,7 @@ class BeverageList extends StatelessWidget {
             );
           },
         ),
-      ),
-    );
+      );
+    });
   }
 }

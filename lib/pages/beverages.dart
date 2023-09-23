@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/beverages_list.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Beverages extends StatefulWidget {
   const Beverages({super.key});
@@ -24,7 +25,7 @@ class _BeveragesState extends State<Beverages> {
                   "Bebidas",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
-                Icon(Icons.filter)
+                Icon(FontAwesomeIcons.slidersH)
               ],
             ),
           ),

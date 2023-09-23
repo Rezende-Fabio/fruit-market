@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_market/models/Produto.dart';
+import 'package:fruit_market/models/TodoCache.dart';
 import 'package:provider/provider.dart';
-import '../models/Favorito.dart';
 
 class FavoriteList extends StatefulWidget {
   @override
@@ -10,16 +11,14 @@ class FavoriteList extends StatefulWidget {
 class _FavoriteListState extends State<FavoriteList> {
   @override
   Widget build(BuildContext context) {
-    Favorito _favoritos = (context).select((Favorito f) => f);
-    return Padding(
-      padding: const EdgeInsets.only(left: 12, right: 12),
-      child: SizedBox(
-        height: 625,
-        width: double.infinity,
+    return Consumer<TodoCache>(builder: (context, cache, _) {
+      return Container(
+        padding: const EdgeInsets.only(left: 15, right: 15),
+        height: MediaQuery.of(context).size.height * 0.7,
         child: ListView.builder(
-          itemCount: _favoritos.favoritos.length,
+          itemCount: cache.favoritos.length,
           itemBuilder: (ctx, index) {
-            final fv = _favoritos.favoritos[index];
+            final fv = cache.favoritos[index];
             return Dismissible(
               background: Container(
                 margin: const EdgeInsets.only(left: 15, right: 15),
@@ -41,7 +40,7 @@ class _FavoriteListState extends State<FavoriteList> {
               ),
               onDismissed: (DismissDirection direction) {
                 setState(() {
-                  _favoritos.removeFavorito(fv);
+                  cache.removeFavorito(fv);
                 });
               },
               key: UniqueKey(),
@@ -110,7 +109,7 @@ class _FavoriteListState extends State<FavoriteList> {
             );
           },
         ),
-      ),
-    );
+      );
+    });
   }
 }

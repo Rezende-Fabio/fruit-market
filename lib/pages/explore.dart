@@ -18,7 +18,7 @@ class _ExploreState extends State<Explore> {
       child: SizedBox(
         child: Column(
           children: [
-            const FindProducts(),
+            FindProducts(),
             ProductsList(),
           ],
         ),
