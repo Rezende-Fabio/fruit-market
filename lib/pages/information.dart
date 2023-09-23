@@ -54,8 +54,7 @@ class _InformationState extends State<Information> {
         body: SafeArea(
           child: Column(
             children: [
-              Carousel(_pageController, _listaImagens, widget.produto.imagem,
-                  _paginaAtual),
+              Carousel(_pageController, _listaImagens, widget.produto.imagem, _paginaAtual),
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10, top: 12),
                 child: Row(

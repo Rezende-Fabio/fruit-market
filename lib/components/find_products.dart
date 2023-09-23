@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/TodoCache.dart';
 
-class FindProducts extends StatefulWidget {
+class FindProducts extends StatelessWidget {
   const FindProducts({super.key});
 
-  @override
-  State<FindProducts> createState() => _FindProductsState();
-}
-
-class _FindProductsState extends State<FindProducts> {
   @override
   Widget build(BuildContext context) {
     return Consumer<TodoCache>(builder: (context, cache, _) {

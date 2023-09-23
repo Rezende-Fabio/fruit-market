@@ -3,14 +3,14 @@ import 'package:fruit_market/models/TodoCache.dart';
 import 'package:provider/provider.dart';
 import '../pages/information.dart';
 
-class ProductsList extends StatelessWidget {
+class ProductsList3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int _crossAxisCount = (MediaQuery.of(context).size.width / 170).floor();
     return Consumer<TodoCache>(builder: (context, cache, _) {
       return Container(
         padding: const EdgeInsets.only(left: 12.5, right: 12.5),
-        height: MediaQuery.of(context).size.height * 0.75,
+        height: MediaQuery.of(context).size.height * 0.7,
         width: double.infinity,
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

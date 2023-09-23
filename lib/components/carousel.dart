@@ -11,7 +11,7 @@ class Carousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: MediaQuery.of(context).size.height * 0.35,
       decoration: const BoxDecoration(
           color: Color.fromARGB(255, 234, 234, 234),
           borderRadius: BorderRadius.only(

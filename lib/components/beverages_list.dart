@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_market/models/TodoCache.dart';
 import 'package:provider/provider.dart';
-import '../models/Produto.dart';
 
 class BeverageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    int _crossAxisCount = (MediaQuery.of(context).size.width / 170).floor();
     return Consumer<TodoCache>(builder: (context, cache, _) {
       return Container(
         padding: const EdgeInsets.only(top: 25, left: 12.5, right: 12.5),
         height: MediaQuery.of(context).size.height * 0.8,
         width: double.infinity,
         child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 0.70),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: _crossAxisCount, childAspectRatio: 0.70),
           itemCount: cache.bebidas.length,
           itemBuilder: (ctx, index) {
             final pr = cache.bebidas[index];
