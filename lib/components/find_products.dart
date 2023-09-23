@@ -8,36 +8,40 @@ class FindProducts extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          width: 350,
-          height: 150,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const Text(
-                "Encontrar Produtos",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 12, right: 12, bottom: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                const Text(
+                  "Encontrar Produtos",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
                 ),
-              ),
-              TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(
-                          10.0), // Raio de arredondamento das bordas
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:
-                          const BorderSide(color: Color.fromARGB(255, 213, 213, 213)),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    fillColor: const Color.fromARGB(255, 213, 213, 213),
-                    filled: true,
-                    hintText: 'Pesquisa',
-                    prefixIcon: const Icon(Icons.search)),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                              10.0), // Raio de arredondamento das bordas
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Color.fromARGB(255, 213, 213, 213)),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        fillColor: const Color.fromARGB(255, 213, 213, 213),
+                        filled: true,
+                        hintText: 'Pesquisa',
+                        prefixIcon: const Icon(Icons.search)),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

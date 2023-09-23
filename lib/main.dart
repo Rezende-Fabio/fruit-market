@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_market/models/Favorito.dart';
+import 'package:fruit_market/models/TodoCache.dart';
 import './pages/login.dart';
 import './pages/home.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => Favorito(),
+      create: (_) => TodoCache(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute: "/",
