@@ -74,7 +74,7 @@ class _InformationState extends State<Information> {
                                 color: Color.fromARGB(255, 146, 146, 146)))
                       ],
                     ),
-                    cache.pesquisaProduto(widget.produto.id)
+                    cache.pesquisaProdutoFavorito(widget.produto.id)
                         ? IconButton(
                             onPressed: () => {
                                   cache.removeFavorito(widget.produto)

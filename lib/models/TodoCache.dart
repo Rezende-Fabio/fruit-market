@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fruit_market/models/Produto.dart';
 
 class TodoCache extends ChangeNotifier {
+  bool pesquisa = false;
+  List<Produto> pesquisas = [];
+
   final List<Produto> favoritos = [
     Produto(
       id: 1,
@@ -205,12 +208,22 @@ class TodoCache extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool pesquisaProduto(int id) {
+  bool pesquisaProdutoFavorito(int id) {
     for (int i = 0; i < favoritos.length; i++) {
       if (favoritos[i].id == id) {
         return true;
       }
     }
     return false;
+  }
+
+  void pesquisaProduto(String pesquisa) {
+    pesquisas = produtos.where((produto) => produto.titulo.toLowerCase().contains(pesquisa.toLowerCase())).toList();
+    if (pesquisas.isEmpty) {
+      this.pesquisa = false;
+    } else {
+      this.pesquisa = true;
+    }
+    notifyListeners();
   }
 }

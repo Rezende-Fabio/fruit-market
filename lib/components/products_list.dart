@@ -14,9 +14,9 @@ class ProductsList extends StatelessWidget {
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, childAspectRatio: 0.90),
-          itemCount: cache.produtos.length,
+          itemCount: cache.pesquisa ? cache.pesquisas.length  : cache.produtos.length,
           itemBuilder: (ctx, index) {
-            final pr = cache.produtos[index];
+            final pr = cache.pesquisa ? cache.pesquisas[index] : cache.produtos[index];
             return Padding(
               padding: const EdgeInsets.all(5),
               child: GestureDetector(
